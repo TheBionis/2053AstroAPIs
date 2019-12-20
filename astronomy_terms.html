@@ -1,0 +1,27 @@
+<html>
+    <head>
+            <meta charset="utf-8">
+            <title>
+                Astronomy Terms Glossary
+            </title>
+            <link rel="stylesheet" href="styles/style.css">
+    </head>
+
+    <div id = "output">
+        <p id = "name"></p>
+        <p id = "definition"></p>
+    </div>
+
+    <body>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script>
+                $.ajax({
+                    url: "http://hubblesite.org/api/v3/glossary?page=all",
+                    success: function(data) {
+                        document.getElementById("name").innerHTML=data.name;
+                        document.getElementById("definition").innerHTML=data.definition;
+                    }
+                });
+            </script>
+    </body>
+</html>
